@@ -17,9 +17,58 @@ const app = express();
 
 
 
-
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
+
+
+var paymentData = {
+    productinfo: "test",
+    txnid: "1234",
+    amount: "10.2",
+    email: "rsnk2013@gmail.com",
+    phone: "9789794377",
+    lastname: "last",
+    firstname: "first",
+    surl: "http://localhost:5000/success", //"http://localhost:3000/payu/success"
+    furl: "http://localhost:5000/fail", //"http://localhost:3000/payu/fail"
+};
+
+app.get('/new',(req,res)=>{
+res.json("sdf");
+})
+app.get('/new2',(req,res)=>{
+  var payumoney = require('payumoney-node');
+payumoney.setKeys("6lBOiuPp", "SYViv7VTpq", "EbzNYNb1JvNMQ3g8ywUPCmsSm+v08Rrm8pk1prKph94=");
+
+payumoney.isProdMode(true); // production = true, test = false
+
+var paymentData = {
+    productinfo: "test",
+    txnid: "1234",
+    amount: "10.2",
+    email: "rsnk2013@gmail.com",
+    phone: "9789794377",
+    lastname: "last",
+    firstname: "first",
+    surl: "http://localhost:5000/success", //"http://localhost:3000/payu/success"
+    furl: "http://localhost:5000/fail", //"http://localhost:3000/payu/fail"
+};
+
+payumoney.makePayment(paymentData, function(error, response) {
+  console.log(error);
+  if (error) {
+    // Some error
+        console.log("error");
+
+  } else {
+    // Payment redirection link
+    console.log(response);
+  }
+});
+    
+})
+
+
 
 
 
@@ -27,12 +76,6 @@ app.set('view engine', 'handlebars');
 const port = process.env.PORT || 5000;
 
 
-
-app.get('/',(req,res)=>{
-
-    
-res.render("index");
-})
 
 app.listen(port, () => {
     console.log("Server started ...")
