@@ -14,7 +14,7 @@ const fs = require('fs');
 const bycrypt = require('bcryptjs');
 const local = require('passport-local').Strategy;
 const app = express();
-
+var sha512 = require('js-sha512');
 
 
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
@@ -34,13 +34,14 @@ var paymentData = {
 };
 
 app.get('/new',(req,res)=>{
-res.json("sdf");
+  var hash=sha512('6lBOiuPp|12345|10.2|test|bhuvana|rsnk2013@gmail.com|||||||||||SYViv7VTpq')
+ res.render("index",{hash:hash});
 })
 app.get('/new2',(req,res)=>{
   var payumoney = require('payumoney-node');
 payumoney.setKeys("6lBOiuPp", "SYViv7VTpq", "EbzNYNb1JvNMQ3g8ywUPCmsSm+v08Rrm8pk1prKph94=");
 
-payumoney.isProdMode(true); // production = true, test = false
+payumoney.isProdMode(false); // production = true, test = false
 
 var paymentData = {
     productinfo: "test",

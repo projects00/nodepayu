@@ -1,7 +1,8 @@
-<form method="post" id="payu-payment-form"  method='post' action="https://test.payu.in/_payment">
-    <input type="hidden" name="hash" value="8168067d41777e7ed683510caf3b2ebe0595a7e8421e0dd55f3bfc823ae9eb296930f7f06bcba85a4c3cc6b5638bf65657513060bad125df8958a1ff9c42a2e1"/>
-    <input type="hidden" name="key" value="6lB0iuPp"/>
-    <input type="hidden" name="txnid" value="123456789"/>
+<form method="post" id="payu-payment-form"  action="https://test.payu.in/_payment">
+<span>{{hash}}</span>    
+    <input type="hidden" name="hash" value={{hash}}/>
+    <input type="hidden" name="key" value="6lBOiuPp"/>
+    <input type="hidden" name="txnid" value="12345"/>
     <input type="hidden" name="amount" value="10.2" />
     <input type="hidden" name="productinfo" value="test"/>
     <input type="hidden" name="firstname" value="bhuvana" />
