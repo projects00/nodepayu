@@ -1,4 +1,4 @@
-<form method="post" id="payu-payment-form"  method='post' action="https://secure.payu.in/_payment">
+<form method="post" id="payu-payment-form"  method='post' action="https://test.payu.in/_payment">
     <input type="hidden" name="hash" value="8168067d41777e7ed683510caf3b2ebe0595a7e8421e0dd55f3bfc823ae9eb296930f7f06bcba85a4c3cc6b5638bf65657513060bad125df8958a1ff9c42a2e1"/>
     <input type="hidden" name="key" value="6lB0iuPp"/>
     <input type="hidden" name="txnid" value="123456789"/>
@@ -8,5 +8,8 @@
     <input type="hidden" name="email" value="rsnk2013@gmail.com" />
     <input type="hidden" name="surl" value="http://localhost/success"/>
     <input type="hidden" name="furl" value="http://localhost/fail"/>
+        <input type="hidden" name="service_provider" value="payu_paisa"/>
+
+    
     <button class="" type="submit" formtarget="_blank" >Buy</button>
 </form>
